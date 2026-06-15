@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { JetBrains_Mono, Nunito } from "next/font/google";
 import "./globals.css";
@@ -71,17 +70,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="mx-auto flex h-16 w-[calc(100%-24px)] max-w-[1600px] items-center justify-between gap-3 sm:w-[calc(100%-40px)]">
             <Link
               href="/"
-              className="flex items-center gap-3 text-lg font-black tracking-tight text-forest transition-colors hover:text-garden sm:text-xl"
+              className="text-lg font-black tracking-tight text-forest transition-colors hover:text-garden sm:text-xl"
             >
-              <Image
-                src="/grow-a-garden-2/icon.webp"
-                alt="Grow a Garden 2"
-                width={40}
-                height={40}
-                className="rounded-xl border-2 border-graphite"
-                priority
-              />
-              <span>GAG2 Pet Wiki</span>
+              GAG2 Pet Wiki
             </Link>
 
             <nav className="hidden items-center gap-2 text-sm font-extrabold text-charcoal md:flex">
