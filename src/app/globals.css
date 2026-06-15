@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-garden: #4CAF50;
+  --color-sprout: #81C784;
+  --color-seedling: #C8E6C9;
+  --color-sky: #42A5F5;
+  --color-soil: #2E3B2E;
+  --color-forest: #1B5E20;
+  --color-graphite: #3c3c3c;
+  --color-ash: #777777;
+  --color-charcoal: #4b4b4b;
+  --color-paper: #ffffff;
+  --font-sans: var(--font-nunito), ui-rounded, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), 'Fira Code', monospace;
+  --radius-default: 12px;
+}
