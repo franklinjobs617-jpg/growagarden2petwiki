@@ -65,6 +65,17 @@ const navItems = [
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${nunito.variable} ${jetBrainsMono.variable} h-full scroll-smooth antialiased`}>
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8QVNGLN2X" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-J8QVNGLN2X');`,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col overflow-x-hidden bg-paper font-sans text-charcoal selection:bg-seedling selection:text-forest">
         <header className="sticky top-0 z-50 border-b-2 border-graphite bg-paper/95 backdrop-blur">
           <div className="mx-auto flex h-16 w-[calc(100%-24px)] max-w-[1600px] items-center justify-between gap-3 sm:w-[calc(100%-40px)]">
