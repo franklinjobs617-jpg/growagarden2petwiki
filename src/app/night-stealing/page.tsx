@@ -1,71 +1,108 @@
 import Image from "next/image";
-import Link from "next/link";
-import { gag2Images } from "@/lib/data";
 import type { Metadata } from "next";
+import { gag2Images } from "@/lib/data";
+import { RelatedGuides } from "@/components/related-guides";
 
 export const metadata: Metadata = {
   title: "Grow a Garden 2 Night Stealing: How to Steal & Defend Your Garden",
-  description: "GAG2 night stealing guide: day/night cycle, best stealing strategies, defense with Bee and Black Dragon pets, Gnome gear, and risk vs reward by garden type.",
+  description: "Grow a Garden 2 night stealing guide with day/night cycle, stealing steps, defense setup, Bee, Gnome, traps, fences, and recovery tips.",
   alternates: { canonical: "https://growagarden2pet.wiki/night-stealing" },
 };
 
 export default function NightStealingPage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
-      <div className="flex items-center gap-4 mb-6">
-        <Image src={gag2Images.icon} alt="GAG2" width={56} height={56} className="rounded-xl" />
+    <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <div className="mb-6 flex items-center gap-4">
+        <Image src={gag2Images.icon} alt="Grow a Garden 2 icon" width={56} height={56} className="rounded-xl" />
         <div>
           <h1 className="text-3xl font-extrabold text-[#2E3B2E]">Grow a Garden 2 Night Stealing Guide</h1>
-          <p className="text-sm text-[#777]">Night is when the real game begins — crops are vulnerable</p>
+          <p className="text-sm text-[#777]">Harvest valuable crops before dark unless your defense is ready.</p>
         </div>
       </div>
 
-      <h2 className="text-xl font-extrabold text-[#2E3B2E] mt-6 mb-3">Day/Night Cycle</h2>
+      <section className="rounded-2xl border-2 border-[#C8E6C9] bg-[#F6FBF4] p-5">
+        <h2 className="text-xl font-extrabold text-[#2E3B2E]">Quick Answer</h2>
+        <p className="mt-2 text-sm leading-6 text-[#4b4b4b]">
+          At dusk, harvest your best crops or defend them with Gnome, Bee, traps, fences, or defensive pets. Only leave expensive crops out overnight when the reward is worth the risk.
+        </p>
+      </section>
+
+      <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">Day/Night Cycle</h2>
       <div className="grid gap-3 sm:grid-cols-2">
         {[
-          ["☀️ Daytime","Safe. Plant and grow. No stealing."],
-          ["🌅 Dusk (30s)","Countdown warning. Harvest valuables NOW."],
-          ["🌙 Night (2 min)","Stealing active. Defenses engage."],
-          ["🌄 Dawn","Night ends. Check what was stolen."],
-        ].map(([p, r]) => (
-          <div key={p} className="rounded-xl border border-[#3c3c3c]/20 bg-white p-3">
-            <span className="text-xs font-extrabold text-[#4b4b4b]">{p}</span>
-            <p className="mt-1 text-xs text-[#777]">{r}</p>
+          ["Daytime", "Plant, grow, sell, and upgrade. Stealing is not the focus."],
+          ["Dusk", "Use the warning window to harvest valuable crops or place defense."],
+          ["Night", "Stealing is active. Defenses and movement tools matter."],
+          ["Dawn", "Check losses, replace defenses, and replant valuable crops."],
+        ].map(([phase, action]) => (
+          <div key={phase} className="rounded-xl border border-[#3c3c3c]/20 bg-white p-3">
+            <span className="text-xs font-extrabold text-[#4b4b4b]">{phase}</span>
+            <p className="mt-1 text-xs text-[#777]">{action}</p>
           </div>
         ))}
       </div>
 
-      <h2 className="text-xl font-extrabold text-[#2E3B2E] mt-8 mb-3">How to Steal</h2>
+      <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">How to Steal</h2>
       <ol className="space-y-2">
-        {["Wait for night. Equip Speed Mushroom (1,500¢) for 1-min speed boost.","Scout gardens with no defensive pets visible. Avoid Bee/Black Dragon/Ice Serpent gardens.","Grab high-value crops (Moon Bloom, Dragon's Breath). Run immediately.","Use Raccoon pet (5M+) for +25 steal limit."].map((s, i) => (
-          <li key={i} className="flex gap-3"><span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4CAF50] text-xs font-extrabold text-white">{i+1}</span><span className="text-sm text-[#4b4b4b]" dangerouslySetInnerHTML={{__html:s}} /></li>
+        {[
+          "Wait until night starts.",
+          "Use movement tools such as Speed Mushroom when you need fast entry and exit.",
+          "Avoid gardens with visible Bee, Gnome, traps, fences, Black Dragon, or Ice Serpent.",
+          "Take high-value crops first, then leave before the owner reacts.",
+          "Use Raccoon when your playstyle is focused on night stealing.",
+        ].map((step, index) => (
+          <li key={step} className="flex gap-3">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4CAF50] text-xs font-extrabold text-white">{index + 1}</span>
+            <span className="text-sm text-[#4b4b4b]">{step}</span>
+          </li>
         ))}
       </ol>
 
-      <h2 className="text-xl font-extrabold text-[#2E3B2E] mt-8 mb-3">Best Defenses</h2>
+      <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">Best Defenses</h2>
       <div className="overflow-x-auto rounded-xl border border-[#3c3c3c]/20 bg-white">
         <table className="w-full text-sm">
-          <thead><tr className="border-b border-[#3c3c3c]/20 bg-[#F9FAFB]"><th className="px-3 py-2 text-left font-bold text-[#777] text-xs">Defense</th><th className="px-3 py-2 text-left font-bold text-[#777] text-xs">Type</th><th className="px-3 py-2 text-left font-bold text-[#777] text-xs">Cost</th><th className="px-3 py-2 text-left font-bold text-[#777] text-xs">How It Works</th></tr></thead>
+          <thead><tr className="border-b border-[#3c3c3c]/20 bg-[#F9FAFB]"><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">Defense</th><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">Type</th><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">When to Use</th></tr></thead>
           <tbody>
-            {[["Bee","Pet","1M","Swarms intruders automatically — best early defense. Buy one before you invest in expensive crops."],["Gnome","Gear","50K","Blows away thieves at night. Cheap, place near valuable crops. Buy from George."],["Venus Fly Trap","Crop","~7M","Eats thieves who try to steal it. Plant it next to your most valuable crops — it defends AND pays."],["Black Dragon","Pet","~1M","Breathes fire on intruders — lethal area defense. Best value Super-tier defense."],["Ice Serpent","Pet","20M","Freezes intruders solid — ultimate defense. Only worth it when you have endgame crops to protect."]].map((d) => (
-              <tr key={d[0]} className="border-b border-[#3c3c3c]/10 last:border-0"><td className="px-3 py-2 font-bold text-[#4b4b4b]">{d[0]}</td><td className="px-3 py-2 text-xs text-[#777]">{d[1]}</td><td className="px-3 py-2 font-mono text-xs text-[#4b4b4b]">{d[2]}</td><td className="px-3 py-2 text-xs text-[#777]">{d[3]}</td></tr>
+            {[
+              ["Gnome", "Gear", "First cheap defense. Place it near valuable crops."],
+              ["Bee", "Pet", "First serious pet defense before expensive crops."],
+              ["Bear Trap", "Prop", "Place at common entry paths and around late-game crops."],
+              ["Fence + Owner Door", "Props", "Use when your garden holds valuable crops overnight."],
+              ["Black Dragon / Ice Serpent", "Pets", "Use for high-value or endgame gardens."],
+              ["Venus Fly Trap", "Crop", "Plant near valuable crops so the garden can punish thieves."],
+            ].map((row) => (
+              <tr key={row[0]} className="border-b border-[#3c3c3c]/10 last:border-0">
+                <td className="px-3 py-2 font-bold text-[#4b4b4b]">{row[0]}</td>
+                <td className="px-3 py-2 text-xs text-[#777]">{row[1]}</td>
+                <td className="px-3 py-2 text-xs text-[#777]">{row[2]}</td>
+              </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      <h2 className="text-xl font-extrabold text-[#2E3B2E] mt-8 mb-3">Night Defense Quick Setup (30 seconds)</h2>
+      <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">30-Second Defense Setup</h2>
       <ol className="space-y-2">
         {[
-          "<strong>Buy a Gnome (50K)</strong> from George at the Gear Shop. Place it in the center of your garden.",
-          "<strong>Harvest everything valuable</strong> before the dusk countdown ends.",
-          "<strong>If you have 1M:</strong> Buy a Bee pet. Park it in your garden. It auto-defends.",
-          "<strong>If someone is stealing right now:</strong> Equip your shovel. Run to the thief. Hit them.",
-          "<strong>Future upgrade:</strong> Surround your garden with Fences (from Charlotte's Props Shop) and add an Owner Door.",
-        ].map((s, i) => (
-          <li key={i} className="flex gap-3"><span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4CAF50] text-xs font-extrabold text-white">{i+1}</span><span className="text-sm text-[#4b4b4b]" dangerouslySetInnerHTML={{__html:s}} /></li>
+          "Harvest all valuable crops when dusk starts.",
+          "Place Gnome near the center of your valuable crops.",
+          "If you own Bee, keep it active in the garden before night.",
+          "Put Bear Traps near obvious entry paths.",
+          "For long-term defense, fence the garden and add an Owner Door.",
+        ].map((step, index) => (
+          <li key={step} className="flex gap-3">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4CAF50] text-xs font-extrabold text-white">{index + 1}</span>
+            <span className="text-sm text-[#4b4b4b]">{step}</span>
+          </li>
         ))}
       </ol>
+
+      <RelatedGuides guides={[
+        { href: "/pets", title: "Defense Pets", detail: "Bee, Black Dragon, and Ice Serpent", image: gag2Images.pet("bee") },
+        { href: "/props", title: "Props & Crates", detail: "Bear Traps, fences, and Owner Doors", emoji: "Props" },
+        { href: "/weather", title: "Weather Events", detail: "Defend crops during night events", emoji: "Weather" },
+        { href: "/seeds", title: "Best Crops", detail: "Know which crops are worth defending", image: gag2Images.seed("venus-fly-trap") },
+      ]} />
     </main>
   );
 }

@@ -132,20 +132,104 @@ export interface GAG2Seed {
 }
 
 export const gag2TopSeeds: GAG2Seed[] = [
- { name: 'Carrot', emoji: '🥕', rarity: 'Common', costSheckles: '1', harvestType: 'Single', notes: 'Starter crop. Cheapest seed.' },
- { name: 'Strawberry', emoji: '🍓', rarity: 'Common', costSheckles: '5', harvestType: 'Multi', notes: 'Best early multi-harvest. Keeps producing.' },
- { name: 'Blueberry', emoji: '🫐', rarity: 'Common', costSheckles: '10', harvestType: 'Multi', notes: 'Good early game value.' },
- { name: 'Tomato', emoji: '🍅', rarity: 'Uncommon', costSheckles: '40', harvestType: 'Multi', notes: 'Solid mid-game multi-harvest.' },
- { name: 'Bamboo', emoji: '🎋', rarity: 'Rare', costSheckles: '700', harvestType: 'Multi', notes: 'Best early-to-mid game value.' },
- { name: 'Pineapple', emoji: '🍍', rarity: 'Rare', costSheckles: '10,000', harvestType: 'Multi', notes: 'Good mid-game income.' },
- { name: 'Mango', emoji: '🥭', rarity: 'Epic', costSheckles: '70,000', harvestType: 'Multi', notes: 'Strong mid-to-late game.' },
- { name: 'Cherry', emoji: '🍒', rarity: 'Legendary', costSheckles: '120,000–1,200,000', harvestType: 'Multi', notes: 'Price varies across sources. Multi-harvest.' },
- { name: 'Acorn', emoji: '🌰', rarity: 'Legendary', costSheckles: '200,000–700,000', harvestType: 'Multi', notes: '2.9% stock chance. Multi-harvest.' },
- { name: 'Pomegranate', emoji: '🍑', rarity: 'Mythic', costSheckles: '2,000,000', harvestType: 'Multi', notes: 'S-Tier income. ~900 base sell per fruit. Multi-harvest.' },
- { name: 'Venus Fly Trap', emoji: '🪴', rarity: 'Mythic', costSheckles: '~7,000,000', harvestType: 'Single', notes: 'S-Tier. Eats thieves who try to steal.' },
- { name: 'Moon Bloom', emoji: '🌸', rarity: 'Super', costSheckles: '~65,000,000', harvestType: 'Multi', notes: 'S-Tier. Anti-gravity on harvest.' },
- { name: 'Dragon\'s Breath', emoji: '🔥', rarity: 'Super', costSheckles: '~90,000,000', harvestType: 'Multi', notes: 'S-Tier. Fires lasers at intruders.' },
-];
+  {
+      "name": "Tulip",
+      "emoji": "🌷",
+      "rarity": "Uncommon",
+      "costSheckles": "40",
+      "harvestType": "Single",
+      "notes": "Flower seed."
+  },
+  {
+      "name": "Apple",
+      "emoji": "🍎",
+      "rarity": "Uncommon",
+      "costSheckles": "400",
+      "harvestType": "Multi",
+      "notes": "Good mid-game income."
+  },
+  {
+      "name": "Corn",
+      "emoji": "🌽",
+      "rarity": "Rare",
+      "costSheckles": "2,500",
+      "harvestType": "Multi",
+      "notes": "Excellent early-game money maker."
+  },
+  {
+      "name": "Cactus",
+      "emoji": "🌵",
+      "rarity": "Rare",
+      "costSheckles": "5,000",
+      "harvestType": "Single",
+      "notes": "Mid-game crop."
+  },
+  {
+      "name": "Mushroom",
+      "emoji": "🍄",
+      "rarity": "Epic",
+      "costSheckles": "15,000",
+      "harvestType": "Multi",
+      "notes": "Good for mid-game."
+  },
+  {
+      "name": "Green Bean",
+      "emoji": "🫛",
+      "rarity": "Epic",
+      "costSheckles": "20,000",
+      "harvestType": "Multi",
+      "notes": "Money machine, obtainable via code."
+  },
+  {
+      "name": "Banana",
+      "emoji": "🍌",
+      "rarity": "Epic",
+      "costSheckles": "30,000",
+      "harvestType": "Multi",
+      "notes": "Solid epic tier income."
+  },
+  {
+      "name": "Grape",
+      "emoji": "🍇",
+      "rarity": "Epic",
+      "costSheckles": "50,000",
+      "harvestType": "Multi",
+      "notes": "Good epic tier income."
+  },
+  {
+      "name": "Coconut",
+      "emoji": "🥥",
+      "rarity": "Epic",
+      "costSheckles": "70,000",
+      "harvestType": "Multi",
+      "notes": "Strong epic tier income."
+  },
+  {
+      "name": "Dragon Fruit",
+      "emoji": "🐉",
+      "rarity": "Legendary",
+      "costSheckles": "120,000",
+      "harvestType": "Multi",
+      "notes": "High value legendary crop."
+  },
+  {
+      "name": "Sunflower",
+      "emoji": "🌻",
+      "rarity": "Legendary",
+      "costSheckles": "5,000,000",
+      "harvestType": "Multi",
+      "notes": "Very high value late-game crop."
+  },
+  {
+      "name": "Poison Apple",
+      "emoji": "🍏",
+      "rarity": "Mythic",
+      "costSheckles": "TBA",
+      "harvestType": "Multi",
+      "notes": "Price TBA."
+  }
+]
+
 
 // === CODES DATA ===
 export const gag2Codes = [

@@ -21,11 +21,6 @@ export default function GearsPage() {
       <h1 className="text-3xl font-extrabold text-[#2E3B2E]">Grow a Garden 2 Gears Guide</h1>
       <p className="mt-2 text-sm text-[#777]">Gears from <strong>George</strong> at the Gear Shop (rotates every 5 min). Some also purchasable with Robux. {gag2Gears.length} Sheckles gears + 4 Robux-only.</p>
 
-      <div className="mt-4 p-4 rounded-xl border-2 border-[#42A5F5]/20 bg-[#E3F2FD]">
-        <p className="text-sm font-bold text-[#42A5F5]">🔍 Search Note</p>
-        <p className="mt-1 text-sm text-[#42A5F5]/80">Players searching for "Speed Hub" or "Magnet" — these items <strong>do not exist</strong> in GAG2. "Speed Hub" is likely the <strong>Speed Mushroom</strong>.</p>
-      </div>
-
       {cats.map((cat) => {
         const items = gag2Gears.filter((g) => g.category === cat);
         return (

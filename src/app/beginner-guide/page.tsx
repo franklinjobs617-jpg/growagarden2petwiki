@@ -1,103 +1,132 @@
 import Image from "next/image";
-import Link from "next/link";
-import { gag2Images } from "@/lib/data";
 import type { Metadata } from "next";
+import { gag2Images } from "@/lib/data";
+import { RelatedGuides } from "@/components/related-guides";
 
 export const metadata: Metadata = {
-  title: "Grow a Garden 2 Beginner Guide: First Hour Walkthrough & Fast Sheckles",
-  description: "New to GAG2? Step-by-step first hour walkthrough: best seeds, spending priority, how to earn Sheckles fast, which pets to buy, and common beginner mistakes to avoid.",
+  title: "Grow a Garden 2 Beginner Guide: First Hour Route & Fast Sheckles",
+  description: "Start Grow a Garden 2 with a clear first-hour route: redeem codes, buy the right seeds, get Bunny and Deer, defend at night, and avoid costly mistakes.",
   alternates: { canonical: "https://growagarden2pet.wiki/beginner-guide" },
 };
 
-const steps = [
-  { t: "1. Claim Your Garden Plot", b: "When you first spawn, walk to the open plot area. Your garden is marked — this is where you'll plant, harvest, and defend." },
-  { t: "2. Redeem Code: TEAMGREENBEAN", b: "Click the <strong>gear icon</strong> (top-left corner of the screen). Type <strong>TEAMGREENBEAN</strong> into the code box (all caps, case-sensitive). Click <strong>Claim!</strong> You get 3 free Green Bean seeds — plant these immediately." },
-  { t: "3. Buy First Seeds from Sam", b: "Walk to the central hub and find <strong>Sam's Seed Shop</strong>. Buy <strong>Strawberry (5 Sheckles)</strong> or <strong>Blueberry (10 Sheckles)</strong>. Both are Multi-harvest — they keep producing after first harvest. The shop changes stock every 5 minutes." },
-  { t: "4. Plant & Water", b: "Place seeds in your garden plot. Walk to <strong>George's Gear Shop</strong> in the hub and buy a <strong>Common Watering Can (2,000 Sheckles)</strong>. Hold it and click on crops — they grow 3× faster for 10 seconds." },
-  { t: "5. Harvest & Sell to Steven", b: "When crops are ready (you'll see them change visually), click to harvest. Go to <strong>Steven's Sell Shop</strong> to sell for Sheckles. Use profits to buy more Multi-harvest seeds. Don't buy Single-harvest seeds early." },
-  { t: "6. Buy Bunny (20,000 Sheckles)", b: "Pets spawn randomly in the lobby — look for a <strong>Bunny</strong> icon with a countdown timer on the ground. Walk up and buy it for 20K. Bunny gives you <strong>+5 walk speed</strong> which makes everything faster: moving between shops, escaping thieves, escorting pets." },
-  { t: "7. Prepare for Night Defense", b: "When dusk hits (the screen darkens and a warning appears), harvest everything valuable NOW. Buy a <strong>Gnome (50K Sheckles)</strong> from George — it automatically blows away thieves at night. Place it near your most valuable crops." },
+const route = [
+  ["First 10 minutes", "Redeem TEAMGREENBEAN, plant the free seeds, then buy Strawberry or Blueberry from Sam."],
+  ["First 30 minutes", "Keep multi-harvest crops planted, sell to Steven, and buy a Common Watering Can from George."],
+  ["First hour", "Buy Bunny for speed, then save for Deer. Add Gnome or Bee before holding expensive crops overnight."],
 ];
 
-const priority = [
-  ["1", "Strawberry / Blueberry Seeds", "5-10", "Multi-harvest ROI"],
-  ["2", "Common Watering Can", "2,000", "3× growth speed"],
-  ["3", "Bamboo Seeds", "700 ea", "Best mid-game crop"],
-  ["4", "Bunny Pet", "20,000", "+5 speed"],
-  ["5", "Deer Pet", "50,000", "+10% growth"],
-  ["6", "Gnome Gear", "50,000", "Auto night defense"],
-  ["7", "Bee Pet", "1,000,000", "Best affordable defense"],
+const steps = [
+  ["Claim your garden plot", "Stay near your plot at the start so you can plant, harvest, and sell without wasting time."],
+  ["Redeem TEAMGREENBEAN", "Open Settings, paste the code, claim the Green Bean Seeds, and plant them immediately."],
+  ["Buy multi-harvest seeds", "Use Strawberry, Blueberry, Tomato, and Bamboo before spending on single-harvest crops."],
+  ["Water high-value crops", "Use watering gear on the crops that make the most Sheckles per harvest."],
+  ["Sell and reinvest", "Sell to Steven, then put most early profit back into seeds and growth."],
+  ["Buy Bunny, then Deer", "Bunny speeds up every route. Deer makes your farm grow faster."],
+  ["Prepare for night", "Harvest valuable crops before dark and add Gnome or Bee when your garden starts holding expensive plants."],
+];
+
+const mistakes = [
+  ["Buying novelty gear too early", "Buy crops, Bunny, Deer, and defense before Wheelbarrow or decorative props."],
+  ["Holding valuables overnight", "Harvest expensive crops before night unless you have defense ready."],
+  ["Ignoring shop restocks", "Check Sam and George often. Restocks are the fastest way to find upgrades."],
+  ["Skipping multi-harvest crops", "Multi-harvest seeds keep producing and make the first hour smoother."],
 ];
 
 export default function BeginnerGuidePage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
-      <div className="flex items-center gap-4 mb-6">
-        <Image src={gag2Images.icon} alt="GAG2" width={56} height={56} className="rounded-xl" />
+    <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <div className="mb-6 flex items-center gap-4">
+        <Image src={gag2Images.icon} alt="Grow a Garden 2 icon" width={56} height={56} className="rounded-xl" />
         <div>
           <h1 className="text-3xl font-extrabold text-[#2E3B2E]">Grow a Garden 2 Beginner Guide</h1>
-          <p className="text-sm text-[#777]">Your first hour: from 0 Sheckles to a thriving garden</p>
+          <p className="text-sm text-[#777]">Follow this route to turn your first seeds into a protected farm.</p>
         </div>
       </div>
 
-      <h2 className="text-xl font-extrabold text-[#2E3B2E] mt-6 mb-3">Step-by-Step First Hour</h2>
+      <section className="rounded-2xl border-2 border-[#C8E6C9] bg-[#F6FBF4] p-5">
+        <h2 className="text-xl font-extrabold text-[#2E3B2E]">First-Hour Route</h2>
+        <div className="mt-4 grid gap-3 md:grid-cols-3">
+          {route.map(([time, action]) => (
+            <div key={time} className="rounded-xl border border-[#dfead8] bg-white p-4">
+              <p className="text-sm font-black text-[#4CAF50]">{time}</p>
+              <p className="mt-1 text-sm leading-6 text-[#4b4b4b]">{action}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">Step-by-Step Start</h2>
       <div className="space-y-3">
-        {steps.map((s) => (
-          <div key={s.t} className="rounded-xl border-2 border-[#3c3c3c]/10 bg-white p-4">
-            <h3 className="text-sm font-extrabold text-[#4b4b4b]">{s.t}</h3>
-            <p className="mt-1 text-sm text-[#777]" dangerouslySetInnerHTML={{ __html: s.b }} />
+        {steps.map(([title, body], index) => (
+          <div key={title} className="flex gap-3 rounded-xl border-2 border-[#3c3c3c]/10 bg-white p-4">
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#4CAF50] text-xs font-black text-white">{index + 1}</span>
+            <div>
+              <h3 className="text-sm font-extrabold text-[#4b4b4b]">{title}</h3>
+              <p className="mt-1 text-sm text-[#777]">{body}</p>
+            </div>
           </div>
         ))}
       </div>
 
-      <h2 className="text-xl font-extrabold text-[#2E3B2E] mt-8 mb-3">Spending Priority</h2>
+      <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">Spending Priority</h2>
       <div className="overflow-x-auto rounded-xl border border-[#3c3c3c]/20 bg-white">
         <table className="w-full text-sm">
-          <thead><tr className="border-b border-[#3c3c3c]/20 bg-[#F9FAFB]"><th className="px-3 py-2 text-left font-bold text-[#777] text-xs">#</th><th className="px-3 py-2 text-left font-bold text-[#777] text-xs">Buy</th><th className="px-3 py-2 text-left font-bold text-[#777] text-xs">Cost</th><th className="px-3 py-2 text-left font-bold text-[#777] text-xs">Why</th></tr></thead>
+          <thead><tr className="border-b border-[#3c3c3c]/20 bg-[#F9FAFB]"><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">Order</th><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">Buy</th><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">Cost</th><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">Why</th></tr></thead>
           <tbody>
-            {priority.map((r) => (
-              <tr key={r[0]} className="border-b border-[#3c3c3c]/10 last:border-0">
-                <td className="px-3 py-2 font-extrabold text-[#4b4b4b]">{r[0]}</td>
-                <td className="px-3 py-2 font-semibold text-[#4b4b4b] text-xs">{r[1]}</td>
-                <td className="px-3 py-2 font-mono text-xs text-[#4b4b4b]">{r[2]}</td>
-                <td className="px-3 py-2 text-xs text-[#777]">{r[3]}</td>
+            {[
+              ["1", "Strawberry / Blueberry", "5-10", "Early multi-harvest income"],
+              ["2", "Common Watering Can", "2,000", "Speed up your best crops"],
+              ["3", "Bamboo", "700 each", "Strong early-to-mid game crop"],
+              ["4", "Bunny", "20,000", "Move faster everywhere"],
+              ["5", "Deer", "50,000", "Grow crops faster"],
+              ["6", "Gnome", "50,000", "Cheap night defense"],
+              ["7", "Bee", "1,000,000", "Better defense for expensive crops"],
+            ].map((row) => (
+              <tr key={row[0]} className="border-b border-[#3c3c3c]/10 last:border-0">
+                <td className="px-3 py-2 font-extrabold text-[#4CAF50]">{row[0]}</td>
+                <td className="px-3 py-2 text-xs font-semibold text-[#4b4b4b]">{row[1]}</td>
+                <td className="px-3 py-2 font-mono text-xs text-[#4b4b4b]">{row[2]}</td>
+                <td className="px-3 py-2 text-xs text-[#777]">{row[3]}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      <h2 className="text-xl font-extrabold text-[#2E3B2E] mt-8 mb-3">Where to Find NPCs</h2>
+      <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">Where to Go</h2>
       <div className="grid gap-2 sm:grid-cols-2">
         {[
-          { npc: "Sam", location: "Seed Shop — central hub", sells: "Seeds (changes every 5 min)" },
-          { npc: "George", location: "Gear Shop — central hub", sells: "Watering cans, sprinklers, gnomes, mushrooms, wheelbarrow" },
-          { npc: "Steven", location: "Sell Shop — central hub", sells: "Buy your harvested crops for Sheckles" },
-          { npc: "Charlotte", location: "Props Shop — central hub", sells: "Crates (Bear Traps, Fences, Conveyors)" },
-          { npc: "Gilbert", location: "Guild Stand — central hub", sells: "Create or manage guilds" },
-        ].map((n) => (
-          <div key={n.npc} className="rounded-xl border border-[#3c3c3c]/20 bg-white p-3">
-            <span className="text-sm font-extrabold text-[#4CAF50]">{n.npc}</span>
-            <p className="text-xs text-[#777]">{n.location}</p>
-            <p className="text-xs text-[#777]">{n.sells}</p>
+          ["Sam", "Seed Shop", "Buy seeds and check restocks."],
+          ["George", "Gear Shop", "Buy watering cans, sprinklers, Gnome, and Wheelbarrow."],
+          ["Steven", "Sell Shop", "Sell harvested crops for Sheckles."],
+          ["Charlotte", "Props Shop", "Buy crates, traps, fences, and doors."],
+          ["Gilbert", "Guild Stand", "Create or manage guilds."],
+        ].map(([npc, location, action]) => (
+          <div key={npc} className="rounded-xl border border-[#3c3c3c]/20 bg-white p-3">
+            <span className="text-sm font-extrabold text-[#4CAF50]">{npc}</span>
+            <p className="text-xs font-bold text-[#4b4b4b]">{location}</p>
+            <p className="text-xs text-[#777]">{action}</p>
           </div>
         ))}
       </div>
 
-      <h2 className="text-xl font-extrabold text-[#2E3B2E] mt-8 mb-3">Common Beginner Mistakes</h2>
+      <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">Common Beginner Mistakes</h2>
       <div className="grid gap-2 sm:grid-cols-2">
-        {[
-          ["Buying Single-harvest first", "Always start with Multi-harvest seeds"],
-          ["Ignoring night countdown", "Harvest everything before dark"],
-          ["Skipping pets", "Bunny (20K) pays for itself in speed"],
-          ["Buying expensive gears early", "Common Watering Can (2K) + Gnome (50K) is all you need"],
-        ].map(([m, f]) => (
-          <div key={m} className="rounded-xl border border-[#E53935]/20 bg-[#FFEBEE] p-3">
-            <p className="text-xs font-extrabold text-[#E53935]">❌ {m}</p>
-            <p className="mt-1 text-xs text-[#E53935]/80">✅ {f}</p>
+        {mistakes.map(([bad, fix]) => (
+          <div key={bad} className="rounded-xl border border-[#E53935]/20 bg-[#FFEBEE] p-3">
+            <p className="text-xs font-extrabold text-[#E53935]">{bad}</p>
+            <p className="mt-1 text-xs text-[#E53935]/80">{fix}</p>
           </div>
         ))}
       </div>
+
+      <RelatedGuides guides={[
+        { href: "/codes", title: "Codes", detail: "Claim free seeds before you buy more", image: gag2Images.hero("codes") },
+        { href: "/seeds", title: "Seeds & Plants", detail: "Follow the crop upgrade route", image: gag2Images.seed("seed-shop") },
+        { href: "/pets", title: "Pets", detail: "Buy Bunny, Deer, then Bee", image: gag2Images.pet("bunny") },
+        { href: "/night-stealing", title: "Night Defense", detail: "Protect crops before dark", emoji: "Defense" },
+        { href: "/weather", title: "Weather Events", detail: "Save valuable crops for events", emoji: "Weather" },
+      ]} />
     </main>
   );
 }
