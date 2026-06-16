@@ -34,6 +34,8 @@ const smallGuides = [
   { emoji: "📦", title: "Props & Crates", href: "/props", detail: "14 crates: Traps, Fences, Conveyors", image: gag2Images.hero("props_crates") },
   { emoji: "🌙", title: "Night Stealing", href: "/night-stealing", detail: "Steal crops & defend your garden", image: gag2Images.hero("night_stealing") },
   { emoji: "🏛️", title: "Guilds", href: "/guild", detail: "Create, join & earn weekly rewards", image: gag2Images.hero("guilds") },
+  { emoji: "🥚", title: "Eggs", href: "/eggs", detail: "Hatch pets from Common & Epic eggs with odds", image: gag2Images.pet("bunny") },
+  { emoji: "🏆", title: "Badges", href: "/badges", detail: "All 23 achievements & how to unlock them", image: gag2Images.pet("golden-dragonfly") },
 ] as const;
 
 const facts = [

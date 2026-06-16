@@ -1,5 +1,38 @@
 # Grow a Garden 2 — EMD站完整计划
 
+## 第六轮迭代 — 卡片布局 + 新页面 (2026-06-16)
+
+### 🎯 目标
+1. 竞品18家全用卡片网格 → 我们也改
+2. 补缺失系统（蛋/Badge/天气）→ 搜索已验证
+3. 不改动现有设计系统（globals.css/Theme）→ 仅改页面组件
+
+### 📋 执行清单
+
+| # | 操作 | 文件 | 改动 |
+|:--:|------|------|------|
+| 1 | Pets 改卡片网格 | src/app/pets/page.tsx | table → grid + 大图 |
+| 2 | 新 Eggs 页面 | src/app/eggs/page.tsx | 新建 |
+| 3 | 新 Badges 页面 | src/app/badges/page.tsx | 新建 |
+| 4 | Seeds/Gears/Props 改卡片 | 3个page.tsx | table → grid |
+| 5 | data.ts 补 Big Owl + egg数据 | src/lib/data.ts | 新增数据 |
+| 6 | 首页补新页面入口 | src/app/page.tsx | guides数组加2个 |
+| 7 | sitemap.ts 补新页面 | src/app/sitemap.ts | 加2条URL |
+| 8 | layout nav 补新页面 | src/app/layout.tsx | navItems加Eggs/Badges |
+
+### ⚠️ 不改
+- globals.css → 设计系统保持不变
+- layout.tsx 结构 → 仅加navItems
+- 已有页面的metadata → title/description不变
+
+### 📊 预期结果
+- 页面数：17 → 19
+- 竞品覆盖：宠物/装备/种子/公会 → +蛋系统+Badge
+- 布局：竖排表格 → 响应式卡片网格
+- Google Trends覆盖：+egg +badge +big owl
+
+---
+
 ## 第一部分：游戏深度分析
 
 ### GAG2 系统全景（截至目前发现的所有系统）

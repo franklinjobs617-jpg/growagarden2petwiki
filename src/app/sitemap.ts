@@ -15,6 +15,8 @@ const pages = [
   { path: "/props", priority: 0.75, freq: "weekly" as const },
   { path: "/guild", priority: 0.75, freq: "weekly" as const },
   { path: "/seed-packs", priority: 0.72, freq: "weekly" as const },
+  { path: "/eggs", priority: 0.78, freq: "weekly" as const },
+  { path: "/badges", priority: 0.75, freq: "weekly" as const },
   { path: "/privacy-policy", priority: 0.3, freq: "monthly" as const },
   { path: "/terms", priority: 0.3, freq: "monthly" as const },
 ];

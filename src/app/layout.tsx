@@ -58,7 +58,7 @@ export const metadata: Metadata = {
 
 const navItems = [
   ["Pets", "/pets"],
-  ["Wheelbarrow", "/wheelbarrow"],
+  ["Eggs", "/eggs"],
   ["Codes", "/codes"],
   ["Seeds", "/seeds"],
   ["Gears", "/gears"],

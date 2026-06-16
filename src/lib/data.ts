@@ -75,6 +75,7 @@ export const gag2Pets: GAG2Pet[] = [
  { name: 'Frog', emoji: '🐸', rarity: 'Common', costSheckles: '10,000', costRobux: null, ability: '+5 Jump Height', tier: 'B', category: 'utility', imageKey: 'frog' },
  { name: 'Bunny', emoji: '🐰', rarity: 'Common', costSheckles: '20,000', costRobux: null, ability: '+5 Walk Speed', tier: 'A', category: 'speed', imageKey: 'bunny' },
  { name: 'Owl', emoji: '🦉', rarity: 'Uncommon', costSheckles: '25,000', costRobux: null, ability: '+12.5% Night Vision. Hoots when rare pet spawns.', tier: 'C', category: 'utility', imageKey: 'owl' },
+ { name: 'Big Owl', emoji: '🦉', rarity: 'Uncommon', costSheckles: '50,000', costRobux: null, ability: '+25% Night Vision (double the normal Owl).', tier: 'B', category: 'utility', imageKey: 'owl' },
  { name: 'Deer', emoji: '🦌', rarity: 'Rare', costSheckles: '50,000', costRobux: null, ability: 'Plants grow 10% faster (stacks with multiple Deer)', tier: 'A', category: 'growth', imageKey: 'deer' },
  { name: 'Robin', emoji: '🐦', rarity: 'Legendary', costSheckles: '75,000', costRobux: null, ability: 'Eats ripe fruit, sometimes drops seeds', tier: 'B', category: 'income', imageKey: 'robin' },
  { name: 'Bee', emoji: '🐝', rarity: 'Legendary', costSheckles: '1,000,000', costRobux: null, ability: 'Swarms intruders to defend garden', tier: 'S', category: 'defense', imageKey: 'bee' },
@@ -160,4 +161,50 @@ export const gag2SeedPacks = [
  { name: 'Poison Ivy', rarity: 'Legendary', odds: '4%', harvestType: 'Single' },
  { name: 'Ghost Pepper', rarity: 'Mythic', odds: '1%', harvestType: 'Multi' },
  ]},
+];
+
+// === EGGS DATA ===
+export interface GAG2Egg {
+ name: string; emoji: string; rarity: string; source: string; pets: { name: string; odds: string }[];
+}
+export const gag2Eggs: GAG2Egg[] = [
+ { name: 'Common Egg', emoji: '🥚', rarity: 'Common', source: 'Guild reward',
+  pets: [
+   { name: 'Frog', odds: '30%' }, { name: 'Bunny', odds: '30%' },
+   { name: 'Deer', odds: '20%' }, { name: 'Robin', odds: '4.5%' },
+   { name: 'Bee', odds: '4.5%' }, { name: 'Golden Dragonfly', odds: '0.3%' },
+   { name: 'Unicorn', odds: '0.3%' }, { name: 'Raccoon', odds: '0.2%' },
+  ]},
+ { name: 'Epic Egg', emoji: '🥚', rarity: 'Epic', source: 'TBA (not yet released)',
+  pets: [
+   { name: 'Deer', odds: '60%' }, { name: 'Unicorn', odds: '30%' },
+   { name: 'Bee', odds: '9%' }, { name: 'Big Bee', odds: '1%' },
+  ]},
+];
+
+// === BADGES DATA ===
+export const gag2Badges = [
+ { name: 'Carrot!', desc: 'Harvest your first Carrot', category: 'Tutorial' },
+ { name: 'First Pet!', desc: 'Obtain your first pet', category: 'Pet' },
+ { name: 'Egg Hatcher!', desc: 'Hatch your first pet egg', category: 'Pet' },
+ { name: "OMG it's BIG!", desc: 'Hatch a Big pet from an egg', category: 'Pet' },
+ { name: "OMG it's HUGE!", desc: 'Hatch a Huge pet from an egg', category: 'Pet' },
+ { name: 'First Mutation!', desc: 'Get your first mutated plant', category: 'Mutation' },
+ { name: 'Golden!', desc: 'Harvest a Golden fruit', category: 'Mutation' },
+ { name: 'Rainbow!', desc: 'Harvest a Rainbow fruit', category: 'Mutation' },
+ { name: 'Builder!', desc: 'Buy and place any prop', category: 'Gameplay' },
+ { name: 'Stole a Fruit!', desc: 'Steal from another garden at night', category: 'Gameplay' },
+ { name: '10ft Plant!', desc: 'Grow a plant reaching 10 feet', category: 'Plant Height' },
+ { name: '25ft Plant!', desc: 'Grow a plant reaching 25 feet', category: 'Plant Height' },
+ { name: '50ft Plant!', desc: 'Grow a plant reaching 50 feet', category: 'Plant Height' },
+ { name: '100ft Plant!', desc: 'Grow a plant reaching 100 feet', category: 'Plant Height' },
+ { name: '500ft Plant!', desc: 'Grow a plant reaching 500 feet', category: 'Plant Height' },
+ { name: '1000ft Plant!', desc: 'Grow a plant reaching 1000 feet', category: 'Plant Height' },
+ { name: '5kg Fruit!', desc: 'Grow a fruit weighing 5kg', category: 'Fruit Weight' },
+ { name: '10kg Fruit!', desc: 'Grow a fruit weighing 10kg', category: 'Fruit Weight' },
+ { name: '25kg Fruit!', desc: 'Grow a fruit weighing 25kg', category: 'Fruit Weight' },
+ { name: '50kg Fruit!', desc: 'Grow a fruit weighing 50kg', category: 'Fruit Weight' },
+ { name: '100kg Fruit!', desc: 'Grow a fruit weighing 100kg', category: 'Fruit Weight' },
+ { name: 'OG', desc: 'Play during launch week (Jun 12-19, 2026)', category: 'Limited' },
+ { name: 'We are so back!', desc: 'Water a plant during launch week', category: 'Limited' },
 ];
