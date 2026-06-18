@@ -73,9 +73,27 @@ export default function Home() {
   return (
     <main className="overflow-hidden bg-gradient-to-b from-[#f6fbf4] via-white to-white">
       <section className="relative mx-auto w-[calc(100%-32px)] max-w-[1120px] py-14 sm:w-[calc(100%-48px)] lg:py-20">
-        <div className="absolute left-1/2 top-0 hidden h-72 w-72 -translate-x-1/2 opacity-[0.05] lg:block" style={{ backgroundImage: "radial-gradient(circle, #4CAF50 2px, transparent 2px)", backgroundSize: "24px 24px" }} />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-x-[-12vw] top-0 -z-0 hidden h-[640px] overflow-hidden lg:block">
+          <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 opacity-[0.05]" style={{ backgroundImage: "radial-gradient(circle, #4CAF50 2px, transparent 2px)", backgroundSize: "24px 24px" }} />
+          <div className="gag2-ambient-drift absolute left-[7%] top-24 h-40 w-40 rounded-full bg-[#f4d77b]/20 blur-2xl" />
+          <div className="gag2-ambient-drift absolute right-[9%] top-36 h-48 w-48 rounded-full bg-[#7fd9b0]/18 blur-2xl [animation-delay:-5s]" />
+          <div className="absolute left-[3%] top-60 h-px w-52 rotate-[-12deg] bg-gradient-to-r from-transparent via-[#81C784]/35 to-transparent" />
+          <div className="absolute right-[2%] top-72 h-px w-56 rotate-[10deg] bg-gradient-to-r from-transparent via-[#f4d77b]/35 to-transparent" />
+          <div className="gag2-ambient-float absolute left-[10%] top-28 grid h-14 w-14 place-items-center rounded-2xl border border-[#d7e5d3] bg-white/55 shadow-sm [--ambient-duration:10s] [--ambient-rotate:-8deg]">
+            <Image src={gag2Images.pet("bunny")} alt="" width={52} height={52} className="h-10 w-10 object-contain opacity-70" />
+          </div>
+          <div className="gag2-ambient-float absolute right-[13%] top-24 grid h-16 w-16 place-items-center rounded-2xl border border-[#d7e5d3] bg-white/55 shadow-sm [--ambient-duration:12s] [--ambient-rotate:7deg] [animation-delay:-3s]">
+            <Image src={gag2Images.gear("wheelbarrow-gag-2")} alt="" width={56} height={56} className="h-11 w-11 object-contain opacity-70" />
+          </div>
+          <div className="gag2-ambient-float absolute left-[16%] top-[430px] grid h-16 w-16 place-items-center rounded-2xl border border-[#d7e5d3] bg-white/50 shadow-sm [--ambient-duration:11s] [--ambient-rotate:9deg] [animation-delay:-6s]">
+            <Image src={gag2Images.seed("venus-fly-trap")} alt="" width={56} height={56} className="h-11 w-11 object-contain opacity-65" />
+          </div>
+          <div className="gag2-ambient-float absolute right-[17%] top-[440px] grid h-14 w-14 place-items-center rounded-2xl border border-[#d7e5d3] bg-white/50 shadow-sm [--ambient-duration:9s] [--ambient-rotate:-6deg] [animation-delay:-2s]">
+            <Image src={gag2Images.pet("bee")} alt="" width={52} height={52} className="h-10 w-10 object-contain opacity-65" />
+          </div>
+        </div>
 
-        <div className="relative mx-auto max-w-4xl text-center">
+        <div className="relative z-10 mx-auto max-w-4xl text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#b8dcc2] bg-[#eaf7ed] px-5 py-2 text-xs font-black uppercase tracking-[0.14em] text-[#2d6a3f] sm:text-sm">
             <span className="h-2.5 w-2.5 rounded-full bg-garden" />
             Updated Jun 16, 2026
@@ -119,7 +137,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative mx-auto mt-10 max-w-4xl">
+        <div className="relative z-10 mx-auto mt-10 max-w-4xl">
           <SiteLookup />
         </div>
       </section>
