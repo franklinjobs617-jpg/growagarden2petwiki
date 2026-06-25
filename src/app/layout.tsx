@@ -46,6 +46,8 @@ const navItems = [
   ["Codes", "/codes"], ["Wheelbarrow", "/wheelbarrow"], ["Seeds", "/seeds"],
 ] as const;
 const moreItems = [
+  ["Megaphone IDs", "/megaphone-sound-ids"], ["Vote", "/vote"],
+  ["Official Site", "/official-website"], ["Venom Spitter", "/venom-spitter"],
   ["Beginner", "/beginner-guide"], ["Gears", "/gears"],
   ["Eggs", "/eggs"], ["Badges", "/badges"], ["Mutations", "/mutations"],
   ["Night", "/night-stealing"], ["Props", "/props"], ["Guild", "/guild"],

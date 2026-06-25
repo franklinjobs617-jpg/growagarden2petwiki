@@ -119,6 +119,7 @@ export const gag2Gears: GAG2Gear[] = [
  { name: 'Lantern', emoji: '🏮', rarity: 'Common', costSheckles: '12,000', costRobux: null, effect: 'Provides light at night', category: 'Utility' },
  { name: 'Sign (Hello Sign)', emoji: '📝', rarity: 'Common', costSheckles: '4,000', costRobux: null, effect: 'Customizable sign for communication', category: 'Utility' },
  { name: 'Teleporter', emoji: '🌀', rarity: 'Legendary', costSheckles: '18,000', costRobux: null, effect: 'Teleports you forward a short distance', category: 'Utility' },
+ { name: 'Megaphone', emoji: 'Sound', rarity: 'Utility', costSheckles: 'Check gear shop', costRobux: null, effect: 'Plays Roblox audio when you enter a numeric Sound ID', category: 'Utility' },
 ];
 
 // === SEEDS DATA ===
@@ -406,6 +407,11 @@ export interface GAG2LookupItem {
 }
 
 const pageLookups: GAG2LookupItem[] = [
+ { type: 'Page', title: 'Megaphone Sound IDs', href: '/megaphone-sound-ids', summary: 'Copy Roblox Sound IDs for the Megaphone and fix silent audio.', keywords: ['megaphone', 'sound id', 'audio id', 'id sound', 'music id', 'megaphone code', 'megaphone codes'] },
+ { type: 'Page', title: 'Grow a Garden 2 Vote', href: '/vote', summary: 'Use vote links safely and check gag.gg vote without risking your account.', keywords: ['vote', 'voting', 'gag.gg vote', 'gag gg vote', 'reward', 'safe vote'] },
+ { type: 'Page', title: 'Official Website and Safe Links', href: '/official-website', summary: 'Open the Roblox play page and check which links are fan tools.', keywords: ['official website', 'website', 'site', 'official site', 'roblox page', 'gag.gg'] },
+ { type: 'Page', title: 'Venom Spitter Guide', href: '/venom-spitter', summary: 'Check Venom Spitter seed price notes, buy advice, and value routine.', keywords: ['venom spitter', 'venom seed', 'mythic seed', 'late game crop'] },
+ { type: 'Page', title: 'Grow a Garden 2 Tier List', href: '/tier-list', summary: 'Best pets, seeds, plants, gears, beginner picks, and what to buy first.', keywords: ['tier list', 'best pets', 'best seeds', 'best gears', 'best plants', 'what to buy first'] },
  { type: 'Page', title: 'Crop Value Calculator', href: '/calculator', summary: 'Calculate crop sell value from weight, quantity, mutations, and bargain bonus.', keywords: ['calculator', 'crop value', 'sell value', 'profit', 'roi'] },
  { type: 'Page', title: 'Crop Values & ROI', href: '/values', summary: 'Compare crop base value, seed cost, profit, ROI, rarity, and harvest type.', keywords: ['values', 'value list', 'roi', 'best crops', 'profit'] },
  { type: 'Page', title: 'Wheelbarrow Worth Guide', href: '/wheelbarrow', summary: 'Check what Wheelbarrow does and whether to buy it before pets or defense.', keywords: ['wheelbarrow', 'wheel barrow', 'worth', '500k', '129 robux'] },

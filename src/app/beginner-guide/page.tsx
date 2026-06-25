@@ -121,6 +121,7 @@ export default function BeginnerGuidePage() {
       </div>
 
       <RelatedGuides guides={[
+        { href: "/tier-list", title: "Tier List", detail: "Best beginner picks and what to buy first", image: gag2Images.hero("all_pets") },
         { href: "/codes", title: "Codes", detail: "Claim free seeds before you buy more", image: gag2Images.hero("codes") },
         { href: "/seeds", title: "Seeds & Plants", detail: "Follow the crop upgrade route", image: gag2Images.seed("seed-shop") },
         { href: "/pets", title: "Pets", detail: "Buy Bunny, Deer, then Bee", image: gag2Images.pet("bunny") },

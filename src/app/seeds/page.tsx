@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { gag2Images } from "@/lib/data";
 import { RelatedGuides } from "@/components/related-guides";
@@ -40,6 +41,7 @@ const stageSeeds = [
 ];
 
 const priceHighlights = [
+  ["Venom Spitter", "Late-game mythic target", "Check the current shop and compare value before spending. Do not rush it before defense is ready."],
   ["Acorn", "Late-game upgrade", "Worth considering after your farm can protect expensive crops."],
   ["Venus Fly Trap", "Late-game defensive crop", "Best when you also care about night defense and high-value harvests."],
   ["Green Bean", "Code reward crop", "Use active codes first so free seeds start earning immediately."],
@@ -110,7 +112,10 @@ export default function SeedsPage() {
         </div>
       </div>
 
-      <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">Grow a Garden 2 Plants Tier List</h2>
+      <div className="mt-8 mb-3 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <h2 className="text-xl font-extrabold text-[#2E3B2E]">Grow a Garden 2 Plants Tier List</h2>
+        <Link href="/tier-list" className="text-sm font-black text-[#4CAF50] underline decoration-2 underline-offset-4">Full Grow a Garden 2 tier list</Link>
+      </div>
       <div className="space-y-2">
         {plantTiers.map(([tier, crops, reason]) => (
           <div key={tier} className="flex gap-3 rounded-xl border border-[#e5e7eb] bg-white p-4">
@@ -141,6 +146,7 @@ export default function SeedsPage() {
             <h3 className="text-sm font-extrabold text-[#2E3B2E]">{seed}</h3>
             <p className="mt-1 text-xs font-black uppercase tracking-[0.12em] text-[#4CAF50]">{role}</p>
             <p className="mt-2 text-sm leading-6 text-[#777]">{body}</p>
+            {seed === "Venom Spitter" && <Link href="/venom-spitter" className="mt-2 inline-block text-sm font-bold text-[#4CAF50] hover:underline">Open Venom Spitter guide</Link>}
           </div>
         ))}
       </div>
@@ -154,6 +160,7 @@ export default function SeedsPage() {
           ["Plant before events", "Keep your best crops planted when you expect weather."],
           ["Stop harvesting", "When weather begins, leave valuable crops on the plant."],
           ["Defend at night", "Use Bee, Gnome, traps, or fences if weather overlaps with night."],
+          ["Check rare seeds", "For Venom Spitter and other costly seeds, verify the shop price before planting."],
         ].map(([title, body]) => (
           <div key={title} className="rounded-xl border border-[#e5e7eb] bg-white p-4">
             <h3 className="text-sm font-extrabold text-[#4b4b4b]">{title}</h3>
@@ -179,6 +186,7 @@ export default function SeedsPage() {
 
       <RelatedGuides guides={[
         { href: "/weather", title: "Weather Events", detail: "Save high-value crops for events", emoji: "Weather" },
+        { href: "/venom-spitter", title: "Venom Spitter", detail: "Late-game seed buy advice", emoji: "Venom" },
         { href: "/mutations", title: "Mutations Guide", detail: "Use boosted crops for bigger payouts", emoji: "Mutations" },
         { href: "/pets", title: "All Pets", detail: "Deer helps your crop route", image: gag2Images.pet("deer") },
         { href: "/codes", title: "Active Codes", detail: "Redeem free seed rewards first", emoji: "Codes" },

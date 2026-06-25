@@ -23,6 +23,11 @@ const featuredGuides = [
 ] as const;
 
 const smallGuides = [
+  { title: "Megaphone Sound IDs", href: "/megaphone-sound-ids", detail: "Copy sound IDs and fix silent audio", image: gag2Images.hero("all_gears") },
+  { title: "Vote Guide", href: "/vote", detail: "Check vote links without risking your account", image: gag2Images.hero("guilds") },
+  { title: "Official Website", href: "/official-website", detail: "Play link, fan tools, and safe pages", image: gag2Images.icon },
+  { title: "Venom Spitter", href: "/venom-spitter", detail: "Seed price notes and buy advice", image: gag2Images.hero("seeds_plants") },
+  { title: "Tier List", href: "/tier-list", detail: "Best pets, seeds, plants, gears, and beginner picks", image: gag2Images.hero("all_pets") },
   { title: "Crop Calculator", href: "/calculator", detail: "Calculate value from weight and mutations", image: gag2Images.seed("mushroom-farm") },
   { title: "Crop Values", href: "/values", detail: "Compare profit, ROI, rarity, and harvest type", image: gag2Images.seed("venus-fly-trap") },
   { title: "Weather Events", href: "/weather", detail: "What to do during each event", image: gag2Images.hero("mutations") },
@@ -37,6 +42,11 @@ const smallGuides = [
 ] as const;
 
 const popularSearches = [
+  ["Megaphone IDs", "/megaphone-sound-ids"],
+  ["Vote", "/vote"],
+  ["Official Website", "/official-website"],
+  ["Venom Spitter", "/venom-spitter"],
+  ["Tier List", "/tier-list"],
   ["Wheelbarrow", "/wheelbarrow"],
   ["Codes", "/codes"],
   ["Eggs", "/eggs"],
@@ -48,14 +58,17 @@ const popularSearches = [
 ] as const;
 
 const guideGroups = [
-  { group: "Start Here", links: [["Beginner Route", "/beginner-guide"], ["Codes", "/codes"], ["GAG2 Wiki", "/"]] },
-  { group: "Items & Gear", links: [["Wheelbarrow", "/wheelbarrow"], ["All Gears", "/gears"], ["Props & Crates", "/props"]] },
-  { group: "Pets & Eggs", links: [["Pets Tier List", "/pets"], ["Egg Hatching", "/eggs"], ["Badges", "/badges"]] },
-  { group: "Farming & Weather", links: [["Best Seeds", "/seeds"], ["Crop Calculator", "/calculator"], ["Crop Values", "/values"], ["Weather Events", "/weather"], ["Mutations", "/mutations"]] },
-  { group: "PvP & Defense", links: [["Night Stealing", "/night-stealing"], ["Guilds", "/guild"], ["Defense Pets", "/pets"]] },
+  { group: "Start Here", links: [["Official Website", "/official-website"], ["Beginner Route", "/beginner-guide"], ["Codes", "/codes"], ["GAG2 Wiki", "/"]] },
+  { group: "Items & Gear", links: [["Megaphone IDs", "/megaphone-sound-ids"], ["Wheelbarrow", "/wheelbarrow"], ["All Gears", "/gears"], ["Props & Crates", "/props"]] },
+  { group: "Pets & Eggs", links: [["Tier List", "/tier-list"], ["Pets Tier List", "/pets"], ["Egg Hatching", "/eggs"], ["Badges", "/badges"]] },
+  { group: "Farming & Weather", links: [["Venom Spitter", "/venom-spitter"], ["Best Seeds", "/seeds"], ["Crop Calculator", "/calculator"], ["Crop Values", "/values"], ["Weather Events", "/weather"], ["Mutations", "/mutations"]] },
+  { group: "PvP & Defense", links: [["Vote Guide", "/vote"], ["Night Stealing", "/night-stealing"], ["Guilds", "/guild"], ["Defense Pets", "/pets"]] },
 ] as const;
 
 const latestGuides = [
+  { title: "Megaphone Sound IDs", href: "/megaphone-sound-ids", detail: "Copy Sound IDs, use the Megaphone, and fix audio that will not play." },
+  { title: "Vote Guide", href: "/vote", detail: "Use gag.gg vote and other vote links without risking your Roblox account." },
+  { title: "Tier List", href: "/tier-list", detail: "Best pets, seeds, plants, gears, beginner picks, and what to buy first." },
   { title: "Wheelbarrow", href: "/wheelbarrow", detail: "What it does, how to get it, and whether it is worth 500K." },
   { title: "Codes", href: "/codes", detail: "Active code, redeem steps, and fixes when a code does not work." },
   { title: "Eggs", href: "/eggs", detail: "How to get eggs, Common Egg odds, and best egg rewards." },
@@ -162,6 +175,27 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-black leading-tight text-[#102118]">{pick.title}</h3>
               <p className="mt-2 text-sm font-medium leading-6 text-[#3f5b4b]">{pick.detail}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto w-[calc(100%-32px)] max-w-[1200px] py-8 sm:w-[calc(100%-48px)]">
+        <div className="mb-7">
+          <p className="text-sm font-black uppercase tracking-[0.12em] text-garden">Trending questions</p>
+          <h2 className="text-3xl font-black tracking-tight text-soil sm:text-4xl">Fast answers players are looking for</h2>
+          <p className="mt-2 max-w-2xl text-sm font-semibold leading-6 text-charcoal">Jump straight to the current high-demand tasks: Megaphone audio, voting links, safe official pages, and late-game seed choices.</p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-4">
+          {[
+            ["Megaphone sound IDs", "Copy numeric Sound IDs and fix silent Megaphone audio.", "/megaphone-sound-ids"],
+            ["gag.gg vote", "Check voting links safely and avoid fake reward pages.", "/vote"],
+            ["Official website", "Open the Roblox play page and understand fan-tool links.", "/official-website"],
+            ["Venom Spitter", "See buy advice before spending late-game Sheckles.", "/venom-spitter"],
+          ].map(([title, body, href]) => (
+            <Link key={href} href={href} className="rounded-xl border border-[#e5e7eb] bg-white p-5 shadow-[0_2px_10px_rgba(0,0,0,0.04)] transition hover:-translate-y-1 hover:shadow-[0_10px_24px_rgba(0,0,0,0.08)]">
+              <h3 className="text-lg font-black text-soil">{title}</h3>
+              <p className="mt-2 text-sm font-medium leading-6 text-charcoal">{body}</p>
             </Link>
           ))}
         </div>

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const mutationPlan = [
+  ["Aurora", "Treat Aurora as a high-value weather target: stop harvesting, defend the garden, and check boosted crops after the event."],
   ["Gold", "Use Golden Dragonfly plans and save high-value crops for gold events."],
   ["Rainbow", "Use Unicorn plans and keep your best crops unharvested during Rainbow weather."],
   ["Electric", "During lightning, stop harvesting and let expensive crops stay on the plant."],
@@ -78,6 +79,7 @@ export default function MutationsPage() {
         <h2 className="text-sm font-extrabold text-[#4b4b4b]">Next Guides</h2>
         <div className="mt-2 flex flex-wrap gap-3 text-sm">
           <Link href="/weather" className="font-semibold text-[#4CAF50] hover:underline">Weather Events</Link>
+          <Link href="/venom-spitter" className="font-semibold text-[#4CAF50] hover:underline">Venom Spitter</Link>
           <Link href="/seeds" className="font-semibold text-[#4CAF50] hover:underline">Best Crops</Link>
           <Link href="/pets" className="font-semibold text-[#4CAF50] hover:underline">Mutation Pets</Link>
           <Link href="/night-stealing" className="font-semibold text-[#4CAF50] hover:underline">Night Defense</Link>

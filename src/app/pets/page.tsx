@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { gag2Images, gag2Pets } from "@/lib/data";
 import type { Metadata } from "next";
 import { PetFilter } from "@/components/pet-filter";
@@ -85,7 +86,10 @@ export default function PetsPage() {
         </div>
       </section>
 
-      <h2 className="mt-10 mb-3 text-xl font-extrabold text-[#2E3B2E]">Pet Tier List Snapshot</h2>
+      <div className="mt-10 mb-3 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <h2 className="text-xl font-extrabold text-[#2E3B2E]">Pet Tier List Snapshot</h2>
+        <Link href="/tier-list" className="text-sm font-black text-[#4CAF50] underline decoration-2 underline-offset-4">Full Grow a Garden 2 tier list</Link>
+      </div>
       <div className="space-y-2">
         {(["S", "A", "B", "C"] as const).map((tier) => {
           const pets = gag2Pets.filter((pet) => pet.tier === tier);

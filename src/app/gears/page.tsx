@@ -45,6 +45,7 @@ const goalPicks = [
 ];
 
 const itemAnswers = [
+  ["Megaphone", "Megaphone plays Roblox audio from numeric Sound IDs. If the sound is silent, the ID may have been removed, typed incorrectly, or blocked by Roblox audio moderation."],
   ["Basic Pot", "Basic Pot lets you plant a crop in a movable pot. Buy it only after your income loop is stable; it should not delay crops, pets, or defense."],
   ["Gnome", "Gnome is one of the first defensive gears to consider because it helps push away intruders during night stealing."],
   ["Super Watering Can", "Super Watering Can is a burst-growth tool. Use it when you want a short growth push on important crops."],
@@ -85,7 +86,10 @@ export default function GearsPage() {
         </div>
       </section>
 
-      <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">Grow a Garden 2 Gear Tier List</h2>
+      <div className="mt-8 mb-3 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <h2 className="text-xl font-extrabold text-[#2E3B2E]">Grow a Garden 2 Gear Tier List</h2>
+        <Link href="/tier-list" className="text-sm font-black text-[#4CAF50] underline decoration-2 underline-offset-4">Full Grow a Garden 2 tier list</Link>
+      </div>
       <div className="space-y-2">
         {gearTiers.map(([tier, gears, reason]) => (
           <div key={tier} className="flex gap-3 rounded-xl border border-[#e5e7eb] bg-white p-4">
@@ -115,6 +119,7 @@ export default function GearsPage() {
           <section key={gear} className="rounded-xl border-2 border-[#C8E6C9] bg-white p-4">
             <h3 className="text-sm font-extrabold text-[#2E3B2E]">{gear}</h3>
             <p className="mt-1 text-sm leading-6 text-[#777]">{body}</p>
+            {gear === "Megaphone" && <Link href="/megaphone-sound-ids" className="mt-2 inline-block text-sm font-bold text-[#4CAF50] hover:underline">Open Megaphone Sound IDs</Link>}
             {gear === "Wheelbarrow" && <Link href="/wheelbarrow" className="mt-2 inline-block text-sm font-bold text-[#4CAF50] hover:underline">Open Wheelbarrow guide</Link>}
           </section>
         ))}
@@ -176,6 +181,7 @@ export default function GearsPage() {
         <h2 className="text-sm font-extrabold text-[#4b4b4b]">Next Gear Routes</h2>
         <div className="mt-2 flex flex-wrap gap-3 text-sm">
           <Link href="/wheelbarrow" className="font-semibold text-[#4CAF50] hover:underline">Wheelbarrow Guide</Link>
+          <Link href="/megaphone-sound-ids" className="font-semibold text-[#4CAF50] hover:underline">Megaphone Sound IDs</Link>
           <Link href="/night-stealing" className="font-semibold text-[#4CAF50] hover:underline">Night Defense</Link>
           <Link href="/seeds" className="font-semibold text-[#4CAF50] hover:underline">Best Seeds</Link>
         </div>

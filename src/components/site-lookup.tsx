@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 import { gag2LookupIndex } from "@/lib/data";
 
 const RECENT_KEY = "gag2:recent-searches:v1";
-const quickTerms = ["pets", "wheelbarrow", "green bean", "gold mutation", "badge"];
+const quickTerms = ["megaphone", "sound id", "vote", "venom spitter", "calculator"];
 
 function getRecentSearches() {
   if (typeof window === "undefined") return [];
@@ -56,7 +56,7 @@ export function SiteLookup() {
       <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-xs font-black uppercase text-garden">Quick lookup</p>
-          <h2 id="quick-lookup-title" className="text-2xl font-black text-soil text-balance">Find pets, crops, gear, codes, and badges</h2>
+          <h2 id="quick-lookup-title" className="text-2xl font-black text-soil text-balance">Find pets, crops, gear, codes, sound IDs, and votes</h2>
         </div>
         <Link href="/calculator" className="text-sm font-black text-garden underline decoration-2 underline-offset-4">
           Open crop calculator
@@ -70,7 +70,7 @@ export function SiteLookup() {
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           onFocus={() => setRecent(getRecentSearches())}
-          placeholder="Search wheelbarrow, Bunny, Green Bean, Gold mutation..."
+          placeholder="Search megaphone, sound ID, vote, Venom Spitter..."
           className="min-h-12 w-full rounded-xl border border-[#cfe0c9] bg-[#f8fbf6] px-4 text-base font-bold text-charcoal outline-none focus:border-garden"
         />
       </label>
@@ -119,7 +119,7 @@ export function SiteLookup() {
       {query && results.length === 0 && (
         <div className="mt-4 rounded-xl border border-[#e5e7eb] bg-[#f9fafb] p-4">
           <p className="text-sm font-black text-soil">No result found</p>
-          <p className="mt-1 text-sm text-ash">Try a pet name, crop name, gear, mutation, code, or badge.</p>
+          <p className="mt-1 text-sm text-ash">Try a pet name, crop name, gear, mutation, code, Sound ID, vote, or badge.</p>
         </div>
       )}
     </section>

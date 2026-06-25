@@ -4,6 +4,11 @@ const BASE = "https://growagarden2pet.wiki";
 
 const pages = [
   { path: "", priority: 1.0, freq: "daily" as const, modified: "2026-06-18" },
+  { path: "/megaphone-sound-ids", priority: 0.9, freq: "daily" as const, modified: "2026-06-25" },
+  { path: "/vote", priority: 0.82, freq: "daily" as const, modified: "2026-06-25" },
+  { path: "/official-website", priority: 0.82, freq: "weekly" as const, modified: "2026-06-25" },
+  { path: "/venom-spitter", priority: 0.78, freq: "weekly" as const, modified: "2026-06-25" },
+  { path: "/tier-list", priority: 0.88, freq: "weekly" as const, modified: "2026-06-18" },
   { path: "/pets", priority: 0.9, freq: "weekly" as const, modified: "2026-06-18" },
   { path: "/calculator", priority: 0.9, freq: "weekly" as const, modified: "2026-06-18" },
   { path: "/values", priority: 0.86, freq: "weekly" as const, modified: "2026-06-18" },
