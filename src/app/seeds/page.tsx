@@ -8,7 +8,7 @@ import { Breadcrumbs, GuideJsonLd } from "@/components/seo-helpers";
 
 export const metadata: Metadata = {
   title: "Grow a Garden 2 Seeds: Best Crops, Acorn, Venus Fly Trap & Dragon Breath",
-  description: "Grow a Garden 2 seed route with best early crops, mid-game upgrades, late-game crops, weather prep, and a searchable seed table.",
+  description: "Grow a Garden 2 seed route with best early crops, mid-game upgrades, late-game crops, price notes, weather prep, and a searchable seed table.",
   alternates: { canonical: "https://growagarden2pet.wiki/seeds" },
 };
 
@@ -40,6 +40,16 @@ const stageSeeds = [
   ["Weather prep", "Crops worth saving", "Leave valuable crops unharvested during weather, then harvest after boosts land."],
 ];
 
+const seedDecisionTable = [
+  ["Strawberry / Blueberry", "Beginner", "First repeat income", "Stable early shop crops", "Buy first", "Move out of single-harvest starter crops quickly."],
+  ["Tomato / Bamboo", "Early to mid", "Reliable income route", "Check current Seed Shop", "High priority", "Use these before expensive pets, gear, or late-game crops."],
+  ["Pineapple / Mushroom", "Mid game", "Stronger crop loop", "Check current Seed Shop", "Buy when affordable", "Good bridge before legendary and mythic seeds."],
+  ["Venus Fly Trap", "Late game", "Value and defensive crop role", "Price can change by update", "Buy after defense", "Confirm the current price in Sam's Seed Shop before buying."],
+  ["Moon Bloom", "Late game", "Weather and mutation target", "Price can change by update", "Late-game only", "Save for weather windows and protect it at night."],
+  ["Dragon's Breath", "Late game", "High-end crop target", "Price can change by update", "Late-game only", "Compare against Moon Bloom and Venus Fly Trap before spending."],
+  ["Venom Spitter", "Late game", "Mythic multi-harvest choice", "Confirm in-game before buying", "Compare first", "Use the Venom Spitter guide before spending a large amount."],
+] as const;
+
 const priceHighlights = [
   ["Venom Spitter", "Late-game mythic target", "Check the current shop and compare value before spending. Do not rush it before defense is ready."],
   ["Acorn", "Late-game upgrade", "Worth considering after your farm can protect expensive crops."],
@@ -48,10 +58,18 @@ const priceHighlights = [
   ["Bamboo", "Core income target", "A practical early-to-mid upgrade before expensive gear."],
 ];
 
+const lateGameCrops = [
+  ["Venus Fly Trap", "Buy when you want a late-game crop with defensive value.", "Best after Bee, Gnome, or other night protection is ready.", "/seeds"],
+  ["Moon Bloom", "Use as a high-value weather and mutation target.", "Hold harvests for event boosts instead of selling too early.", "/mutations"],
+  ["Dragon's Breath", "Compare as a top-end crop before large Seed Shop spending.", "Better for farms that can already protect expensive plants.", "/calculator"],
+  ["Venom Spitter", "Check the dedicated guide before buying.", "Useful only when the current shop price and your income make sense.", "/venom-spitter"],
+] as const;
+
 const faq = [
   ["What is the best seed in Grow a Garden 2?", "For most players, the best seed is the strongest multi-harvest crop they can afford and protect. Bamboo is a practical early target; Venus Fly Trap and Moon Bloom are stronger late-game targets."],
   ["What should beginners plant first?", "Beginners should move into cheap multi-harvest crops, redeem codes, then use income to buy Bunny, Deer, and better seeds."],
-  ["What is the Venus Fly Trap price in GAG2?", "Treat Venus Fly Trap as a late-game crop target. Check Sam's Seed Shop and prioritize it only after your income and defense are ready."],
+  ["What is the Venus Fly Trap price in GAG2?", "Treat Venus Fly Trap as a late-game crop target. Check Sam's Seed Shop before buying because prices and stock can change by update."],
+  ["Should I buy Dragon's Breath or Moon Bloom first?", "Buy the one you can afford and protect without slowing the rest of your farm. If both are too expensive, keep building income with Bamboo, Pineapple, Mushroom, or Venus Fly Trap first."],
   ["Is Acorn worth buying?", "Acorn is worth buying after your starter and mid-game income loop is stable. Do not delay core pets, sprinklers, or basic defense just to rush it."],
 ];
 
@@ -84,6 +102,25 @@ export default function SeedsPage() {
               ))}
             </tbody>
           </table>
+        </div>
+      </section>
+
+      <section className="mt-6 rounded-2xl border-2 border-[#FFC107]/40 bg-[#FFF8E1] p-5">
+        <h2 className="text-xl font-extrabold text-[#2E3B2E]">Quick Seed Route</h2>
+        <p className="mt-2 text-sm leading-6 text-[#777]">
+          Start with cheap multi-harvest crops, move into Bamboo or Pineapple, then compare late-game crops only after your garden can defend expensive plants. For rare or costly seeds, check the current Seed Shop before buying.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {[
+            ["Calculate crop value", "/calculator"],
+            ["Compare crop values", "/values"],
+            ["Use mutations", "/mutations"],
+            ["Plan weather harvests", "/weather"],
+          ].map(([label, href]) => (
+            <Link key={href} href={href} className="rounded-full border border-[#e5d08a] bg-white px-3 py-1.5 text-xs font-black text-[#8A5A00] transition hover:-translate-y-0.5">
+              {label}
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -139,7 +176,37 @@ export default function SeedsPage() {
         ))}
       </div>
 
-      <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">Seed Prices</h2>
+      <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">Seed Table and Price Confidence</h2>
+      <div className="overflow-x-auto rounded-xl border border-[#e5e7eb] bg-white">
+        <table className="w-full min-w-[760px] text-sm">
+          <thead><tr className="border-b border-[#e5e7eb] bg-[#F9FAFB]"><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">Seed</th><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">Stage</th><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">Use</th><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">Price confidence</th><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">Buy priority</th><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">Notes</th></tr></thead>
+          <tbody>
+            {seedDecisionTable.map((row) => (
+              <tr key={row[0]} className="border-b border-[#e5e7eb] last:border-0">
+                <td className="px-3 py-2 font-bold text-[#4b4b4b]">{row[0]}</td>
+                <td className="px-3 py-2 text-xs text-[#777]">{row[1]}</td>
+                <td className="px-3 py-2 text-xs text-[#777]">{row[2]}</td>
+                <td className="px-3 py-2 text-xs text-[#777]">{row[3]}</td>
+                <td className="px-3 py-2 text-xs font-semibold text-[#4b4b4b]">{row[4]}</td>
+                <td className="px-3 py-2 text-xs text-[#777]">{row[5]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">Late-Game Crop Comparison</h2>
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {lateGameCrops.map(([crop, bestFor, caution, href]) => (
+          <Link key={crop} href={href} className="rounded-xl border border-[#e5e7eb] bg-white p-4 transition hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)]">
+            <h3 className="text-sm font-extrabold text-[#2E3B2E]">{crop}</h3>
+            <p className="mt-2 text-sm leading-6 text-[#777]">{bestFor}</p>
+            <p className="mt-2 text-xs font-semibold leading-5 text-[#4b4b4b]">{caution}</p>
+          </Link>
+        ))}
+      </div>
+
+      <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">Seed Price Notes</h2>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {priceHighlights.map(([seed, role, body]) => (
           <div key={seed} className="rounded-xl border-2 border-[#C8E6C9] bg-white p-4">

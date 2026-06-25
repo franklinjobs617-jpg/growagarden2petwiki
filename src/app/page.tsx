@@ -5,7 +5,7 @@ import { gag2Images } from "@/lib/data";
 import { SiteLookup } from "@/components/site-lookup";
 
 export const metadata: Metadata = {
-  title: "Grow a Garden 2 Wiki: Pets, Codes, Seeds, Weather & Gear Guides",
+  title: "Grow a Garden 2 Wiki: Pets, Codes, Seeds, Eggs, Weather & Gear Guides",
   description: "Grow a Garden 2 wiki with pets, codes, best seeds, weather events, mutations, gears, night stealing, guilds, eggs, badges, and beginner route.",
   alternates: { canonical: "https://growagarden2pet.wiki" },
 };
@@ -29,7 +29,7 @@ const smallGuides = [
   { title: "Venom Spitter", href: "/venom-spitter", detail: "Seed price notes and buy advice", image: gag2Images.hero("seeds_plants") },
   { title: "Tier List", href: "/tier-list", detail: "Best pets, seeds, plants, gears, and beginner picks", image: gag2Images.hero("all_pets") },
   { title: "Crop Calculator", href: "/calculator", detail: "Calculate value from weight and mutations", image: gag2Images.seed("mushroom-farm") },
-  { title: "Crop Values", href: "/values", detail: "Compare profit, ROI, rarity, and harvest type", image: gag2Images.seed("venus-fly-trap") },
+  { title: "Crop Values", href: "/values", detail: "Compare crop value, profit, rarity, and harvest type", image: gag2Images.seed("venus-fly-trap") },
   { title: "Weather Events", href: "/weather", detail: "What to do during each event", image: gag2Images.hero("mutations") },
   { title: "Mutations", href: "/mutations", detail: "Save valuable crops for boosted payouts", image: gag2Images.hero("mutations") },
   { title: "Night Stealing", href: "/night-stealing", detail: "Steal crops and defend your garden", image: gag2Images.hero("night_stealing") },
@@ -82,6 +82,17 @@ const facts = [
   ["Best start", "Codes, seeds, Bunny"],
 ] as const;
 
+const playerTasks = [
+  ["I need pets", "Open prices, abilities, roles, and which pet to buy first.", "/pets"],
+  ["I need codes", "Redeem active rewards and fix codes that do not work.", "/codes"],
+  ["I need eggs", "Learn how guild eggs work and what Common Egg can hatch.", "/eggs"],
+  ["I need seeds", "Pick early, mid, and late crops before spending Sheckles.", "/seeds"],
+  ["I need gears", "Compare Wheelbarrow, sprinklers, watering cans, and utility gear.", "/gears"],
+  ["I need values", "Check crop values and calculate harvest payouts.", "/values"],
+  ["I need calculator", "Estimate crop value from weight and mutation choices.", "/calculator"],
+  ["I need latest guides", "Jump to Megaphone, Vote, Venom Spitter, and Tier List pages.", "#latest-guides"],
+] as const;
+
 export default function Home() {
   return (
     <main className="overflow-hidden bg-gradient-to-b from-[#f6fbf4] via-white to-white">
@@ -113,7 +124,7 @@ export default function Home() {
           </div>
 
           <h1 className="mx-auto max-w-4xl text-[clamp(2.45rem,5.4vw,4.6rem)] font-black leading-[0.98] text-[#071b10]">
-            Grow a Garden 2 Wiki: <span className="text-garden">Pets, Codes, Seeds &amp; Weather Guides</span>
+            Grow a Garden 2 Wiki: <span className="text-garden">Pets, Codes, Seeds, Eggs &amp; Weather Guides</span>
           </h1>
 
           <p className="mx-auto mt-5 max-w-2xl text-base font-semibold leading-7 text-[#4a6654] sm:text-lg sm:leading-8">
@@ -155,6 +166,22 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="mx-auto w-[calc(100%-32px)] max-w-[1200px] py-8 sm:w-[calc(100%-48px)]">
+        <div className="mb-7">
+          <p className="text-sm font-black uppercase tracking-[0.12em] text-garden">What are you looking for?</p>
+          <h2 className="text-3xl font-black tracking-tight text-soil sm:text-4xl">Choose the answer you need now</h2>
+          <p className="mt-2 max-w-2xl text-sm font-semibold leading-6 text-charcoal">Use this GAG2 wiki hub to jump straight to pets, codes, eggs, seeds, gears, values, calculator tools, and the newest guides.</p>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {playerTasks.map(([title, body, href]) => (
+            <Link key={title} href={href} className="rounded-xl border border-[#e5e7eb] bg-white p-4 shadow-[0_1px_6px_rgba(0,0,0,0.04)] transition hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)]">
+              <h3 className="text-base font-black text-soil">{title}</h3>
+              <p className="mt-2 text-sm font-medium leading-6 text-charcoal">{body}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section className="mx-auto w-[calc(100%-32px)] max-w-[1200px] py-12 sm:w-[calc(100%-48px)]">
         <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -180,7 +207,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto w-[calc(100%-32px)] max-w-[1200px] py-8 sm:w-[calc(100%-48px)]">
+      <section id="latest-guides" className="mx-auto w-[calc(100%-32px)] max-w-[1200px] py-8 sm:w-[calc(100%-48px)]">
         <div className="mb-7">
           <p className="text-sm font-black uppercase tracking-[0.12em] text-garden">Trending questions</p>
           <h2 className="text-3xl font-black tracking-tight text-soil sm:text-4xl">Fast answers players are looking for</h2>

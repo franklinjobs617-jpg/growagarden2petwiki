@@ -7,7 +7,7 @@ import { Breadcrumbs, GuideJsonLd } from "@/components/seo-helpers";
 
 export const metadata: Metadata = {
   title: "Grow a Garden 2 Wheelbarrow: What It Does, How to Get & Worth It",
-  description: "Use this Wheelbarrow guide to decide whether to buy it, where to get it, what it does, and what to buy first in Grow a Garden 2.",
+  description: "Use this GAG2 Wheelbarrow guide to decide whether to buy it, where to get it, what it does, and what to buy first in Grow a Garden 2.",
   alternates: { canonical: "https://growagarden2pet.wiki/wheelbarrow" },
 };
 
@@ -27,8 +27,14 @@ const breadcrumbs = [
 const quickFacts = [
   ["Cost", "500,000 Sheckles / 129 Robux"],
   ["Rarity", "Legendary Gear"],
-  ["Best use", "Carry players, team play, movement utility"],
+  ["What it does", "Carries another player and helps with team movement"],
   ["Buy priority", "After income, pets, and basic defense"],
+];
+
+const buyDecisions = [
+  ["Buy later", "You are still saving for Bunny, Deer, better seeds, or your first defense item.", "Spend on income first. Wheelbarrow is useful, but it does not grow crops faster."],
+  ["Optional buy", "You have stable crops and play with friends, but 500K still feels expensive.", "Buy only if carrying players helps your group routes often."],
+  ["Good buy", "Your farm earns 500K back quickly and night defense is already handled.", "Pick it up when George stocks it and use it for team movement."],
 ];
 
 const useSteps = [
@@ -40,6 +46,9 @@ const useSteps = [
 
 const faq = [
   ["Where do you get Wheelbarrow in Grow a Garden 2?", "Buy it from George at the Gear Shop when it appears in stock. It costs 500,000 Sheckles or 129 Robux."],
+  ["What does the Wheelbarrow do in GAG2?", "Wheelbarrow lets you carry another player. It is mainly a team utility gear, not a crop income upgrade."],
+  ["Is wheel barrow GAG2 the same item?", "Yes. Players often search wheel barrow, wheelbarrow, or Wheelbarrow GAG2 for the same Legendary Gear."],
+  ["Is Wheelbarrow worth 500K?", "It is worth 500K after your crop income, Bunny, Deer, and basic night defense are stable. Skip it if the purchase delays those upgrades."],
   ["Does Wheelbarrow help farming?", "Only indirectly. It helps movement and group play, but crops, sprinklers, Bunny, Deer, and Bee usually improve your farm faster."],
   ["Is Wheelbarrow better than Speed Mushroom?", "No for pure movement. Speed Mushroom is cheaper for quick travel, while Wheelbarrow is mainly for carrying players and team utility."],
   ["Why does Wheelbarrow not work?", "Check that it is equipped, stand close enough to the player, and try again in an open area. If the server is lagging, re-equip the gear or rejoin."],
@@ -60,12 +69,12 @@ export default function WheelbarrowPage() {
       <p className="mt-2 text-sm text-[#777]">Legendary Gear. Costs 500,000 Sheckles or 129 Robux when it appears in the Gear Shop.</p>
 
       <section className="mt-5 rounded-2xl border-2 border-[#FFC107]/40 bg-[#FFF8E1] p-5">
-        <h2 className="text-xl font-extrabold text-[#2E3B2E]">Quick Answer</h2>
+        <h2 className="text-xl font-extrabold text-[#2E3B2E]">Wheelbarrow Quick Answer</h2>
         <div className="mt-3 grid gap-3 sm:grid-cols-3">
           {[
-            ["What it does", "Wheelbarrow lets you carry players and adds useful movement utility for team play."],
-            ["How to get it", "Check George at the Gear Shop and buy it when the Legendary gear appears in stock."],
-            ["Should you buy it", "Buy it after your income loop, Bunny or Deer, and basic night defense are already stable."],
+            ["What does it do?", "Wheelbarrow lets you carry another player and move them during team routes or night chaos."],
+            ["How do you get it?", "Check George at the Gear Shop and buy it when the Legendary gear appears in stock."],
+            ["Is it worth 500K?", "Yes for team play after your crops, Bunny, Deer, and basic defense are already stable."],
           ].map(([title, body]) => (
             <div key={title} className="rounded-xl bg-white/80 p-3">
               <p className="text-xs font-black uppercase tracking-[0.12em] text-[#F57F17]">{title}</p>
@@ -101,7 +110,7 @@ export default function WheelbarrowPage() {
 
       <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">What Does Wheelbarrow Do in GAG2?</h2>
       <p className="mb-3 text-sm leading-6 text-[#777]">
-        Wheelbarrow is a player-carrying utility gear. It is best when you play with friends, move through crowded routes, or need a tool that helps your group coordinate around shops, gardens, and night defense.
+        Wheelbarrow is a player-carrying utility gear. Equip it near another player to carry and reposition them. It is best when you play with friends, move through crowded routes, or need a tool that helps your group coordinate around shops, gardens, and night defense.
       </p>
       <div className="overflow-x-auto rounded-xl border border-[#e5e7eb] bg-white">
         <table className="w-full text-sm">
@@ -156,6 +165,22 @@ export default function WheelbarrowPage() {
               <tr key={row[0]} className="border-b border-[#e5e7eb] last:border-0">
                 <td className="px-3 py-2 font-black text-[#4CAF50]">{row[0]}</td>
                 <td className="px-3 py-2 font-bold text-[#4b4b4b]">{row[1]}</td>
+                <td className="px-3 py-2 text-xs text-[#777]">{row[2]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">Should You Buy Wheelbarrow Now?</h2>
+      <div className="overflow-x-auto rounded-xl border border-[#e5e7eb] bg-white">
+        <table className="w-full text-sm">
+          <thead><tr className="border-b border-[#e5e7eb] bg-[#F9FAFB]"><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">Decision</th><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">Your farm looks like this</th><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">What to do</th></tr></thead>
+          <tbody>
+            {buyDecisions.map((row) => (
+              <tr key={row[0]} className="border-b border-[#e5e7eb] last:border-0">
+                <td className="px-3 py-2 font-bold text-[#4b4b4b]">{row[0]}</td>
+                <td className="px-3 py-2 text-xs text-[#777]">{row[1]}</td>
                 <td className="px-3 py-2 text-xs text-[#777]">{row[2]}</td>
               </tr>
             ))}

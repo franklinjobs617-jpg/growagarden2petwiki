@@ -21,9 +21,9 @@ const breadcrumbs = [
 ];
 
 const eggQuickAnswers = [
-  ["How to get eggs", "Join or create a guild, help the guild earn weekly reward points, then claim eggs from guild rewards."],
-  ["Where eggs come from", "Eggs come from guild rewards, then you place them in your garden and wait for the hatch."],
-  ["Which egg is best", "Epic Egg is the stronger target when available; Common Egg is the early guild reward path."],
+  ["How to get eggs", "Join or create a guild, help earn weekly reward points, then claim eggs from guild rewards."],
+  ["Can you buy eggs?", "No regular egg shop is listed here. Treat guild rewards as the egg path and check in-game updates before spending."],
+  ["Common Egg rewards", "Common Egg can hatch useful starter, growth, defense, and rare collection pets."],
 ];
 
 const eggSteps = [
@@ -38,9 +38,25 @@ const eggSummary = [
   ["Epic Egg", "Deer, Unicorn, Bee, Big Bee", "Higher-value pet odds when available", "Players targeting stronger pets"],
 ];
 
+const commonEggPlan = [
+  ["Best practical result", "Deer", "Growth speed helps every crop route and is useful even before late-game farming."],
+  ["Best defense result", "Bee", "Bee helps protect valuable crops once your garden starts holding better plants overnight."],
+  ["Rare collection chase", "Unicorn / Raccoon", "Great if you get them, but do not plan your early route around rare hatches."],
+  ["Starter outcomes", "Frog / Bunny / Robin", "Keep useful early pets, then replace weaker roles as your pet slots improve."],
+];
+
+const eggTroubleshooting = [
+  ["No guild", "Join an active guild first. Eggs are tied to guild reward progress."],
+  ["No reward yet", "Keep contributing crop weight and wait for the reward threshold or weekly reset."],
+  ["Egg will not hatch", "Place it in your garden and wait for the hatch timer to finish before checking the result."],
+  ["Wrong pet result", "Hatching is chance-based. Use the odds table to decide whether more Common Eggs are worth your time."],
+];
+
 const faq = [
   ["Can you buy eggs in Grow a Garden 2?", "No. Eggs are earned from guild rewards, then placed in your garden to hatch."],
+  ["How do you get eggs in GAG2?", "Join a guild, help the guild earn reward progress with crop weight, claim the egg reward, place the egg in your garden, then wait for it to hatch."],
   ["What pets come from Common Egg?", "Common Egg can hatch Frog, Bunny, Deer, Robin, Bee, Golden Dragonfly, Unicorn, or Raccoon."],
+  ["Is Common Egg worth hatching?", "Yes for new players because it can give Deer, Bee, Bunny, and other useful pets. Do not expect rare pets every time."],
   ["What is the best egg reward?", "Unicorn, Raccoon, Bee, and Golden Dragonfly are the main high-value Common Egg outcomes."],
   ["Do eggs come from guild rewards?", "Yes. Guild rewards are the egg path, so joining an active guild matters if you want more hatches."],
 ];
@@ -73,8 +89,8 @@ export default function EggsPage() {
     ))}
    </section>
 
-   <div className="p-4 rounded-xl bg-[#C8E6C9]/50 mb-6">
-    <p className="text-sm font-bold text-[#4b4b4b]">How to Get Eggs</p>
+   <div className="p-4 rounded-xl bg-[#C8E6C9]/50 mb-6 mt-5">
+    <p className="text-sm font-bold text-[#4b4b4b]">Direct Answer: How to Get Eggs</p>
     <p className="mt-1 text-sm text-[#777]">
      In GAG2, eggs are obtained exclusively from <strong>Guild rewards</strong>. When your guild earns enough points from
      harvest weight (1 point per gram), you receive eggs. Place them in your garden and wait for them to hatch. There is
@@ -92,6 +108,25 @@ export default function EggsPage() {
      </li>
     ))}
    </ol>
+
+   <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">Common Egg GAG2: What You Can Get</h2>
+   <p className="mb-3 text-sm leading-6 text-[#777]">
+    Common Egg is the first egg most players should understand. It can give early movement pets, growth help, defense, and rare collection wins, but the best plan is to value the useful common results instead of chasing only the rarest hatch.
+   </p>
+   <div className="overflow-x-auto rounded-xl border border-[#e5e7eb] bg-white">
+    <table className="w-full text-sm">
+     <thead><tr className="border-b border-[#e5e7eb] bg-[#F9FAFB]"><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">Goal</th><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">Common Egg result</th><th className="px-3 py-2 text-left text-xs font-bold text-[#777]">How to use it</th></tr></thead>
+     <tbody>
+      {commonEggPlan.map((row) => (
+       <tr key={row[0]} className="border-b border-[#e5e7eb] last:border-0">
+        <td className="px-3 py-2 font-bold text-[#4b4b4b]">{row[0]}</td>
+        <td className="px-3 py-2 text-xs font-semibold text-[#4b4b4b]">{row[1]}</td>
+        <td className="px-3 py-2 text-xs text-[#777]">{row[2]}</td>
+       </tr>
+      ))}
+     </tbody>
+    </table>
+   </div>
 
    <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">Best Egg Rewards</h2>
    <div className="overflow-x-auto rounded-xl border border-[#e5e7eb] bg-white">
@@ -147,6 +182,16 @@ export default function EggsPage() {
    <p className="text-sm leading-6 text-[#777]">
     Common Egg is the first egg most players should understand because it connects directly to early guild rewards and can hatch useful starter pets, growth pets, defense pets, and rare high-value pets.
    </p>
+
+   <h2 className="mt-8 mb-3 text-xl font-extrabold text-[#2E3B2E]">Why You Still Do Not Have an Egg</h2>
+   <div className="grid gap-3 sm:grid-cols-2">
+    {eggTroubleshooting.map(([title, body]) => (
+     <div key={title} className="rounded-xl border border-[#e5e7eb] bg-white p-4">
+      <h3 className="text-sm font-extrabold text-[#4b4b4b]">{title}</h3>
+      <p className="mt-1 text-sm leading-6 text-[#777]">{body}</p>
+     </div>
+    ))}
+   </div>
 
    <div className="mt-6 p-4 rounded-xl bg-[#FFF8E1] border-2 border-[#FFC107]/40">
     <p className="text-sm font-extrabold text-[#F57F17]">💡 Pro Tip</p>
